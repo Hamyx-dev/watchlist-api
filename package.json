@@ -1,4 +1,12 @@
 {
+  "name": "backend",
+  "description": "",
+   "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "node --env-file=../.env src/server.js"
+  },
   "dependencies": {
     "africastalking": "^0.7.9",
     "bcryptjs": "^3.0.3",
