@@ -81,6 +81,22 @@ app.put("/movies/:id", async (req, res) => {
 
 });
 
+app.delete('/movies/:id', async (req, res)=> {
+  const movieId = req.params.id
+  try{
+      const deletedmovie = await movieModel.findByIdAndDelete(movieId)
+
+    if (!deletedmovie) return res.status(404).json({ message: 'Movie not found' });
+    res.json({
+      message: "Movie successfully removed",
+      data: deletedmovie,
+    });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
